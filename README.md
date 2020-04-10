@@ -1,1 +1,1 @@
-# iot-website
+A website for a Smart House project which is based on Internet of Things(IoT) craeted by me on 2019. This uses Firebase as it's backend and the code is written in JavaScript. A user can remotely control the different appliances of his house using this website. The house is connected to a gateway made using NodeMCU and this gateway and the website is synced with database and works accordingly.
