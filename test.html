@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CHAT BOT</title>
+
+	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+
+	<style type="text/css">
+		#chat{
+			display: none;
+			position: absolute;
+			bottom: 85px;
+			right: 25px;
+		}
+
+		.init{
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			padding: 10px;
+			color: white;
+			background-color: #33c5ff;
+			border-radius: 10cm;
+			cursor: pointer;
+		}
+
+		.init:hover{
+			background-color: #008bc2;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".init").click(function() {
+				$("#chat").slideToggle("slow");
+			});			
+		});
+	</script>
+</head>
+<body>
+	<iframe
+    	allow="microphone;"
+    	width="350"
+    	height="430"
+    	src="https://console.dialogflow.com/api-client/demo/embedded/fcad1afe-8991-47ee-aec5-f841fc9a5855"
+		id="chat">
+	</iframe>
+
+	<i class="far fa-comments fa-3x init"></i>
+</body>
+</html>

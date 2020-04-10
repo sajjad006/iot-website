@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>FIREBASE</title>
+
+	<!-- Firebase Imports -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-auth.js"></script>
+
+	<!-- My Scripts -->
+	<script src="script.js"></script>
+	<script src="base.js"></script>
+
+	<!-- jQuery and FontAwesome -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	<!-- My Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="navigation.css">
+
+	<!-- Basic page needs-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		#chat{
+			display: none;
+			position: fixed;
+			bottom: 85px;
+			right: 10px;
+		}
+
+		.init{
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			padding: 10px;
+			color: white;
+			background-color: #33c5ff;
+			border-radius: 10cm;
+			cursor: pointer;
+		}
+
+		.init:hover{
+			background-color: #008bc2;
+		}
+	</style>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".init").click(function() {
+				$("#chat").slideToggle("slow");
+			});			
+		});
+	</script>
+</head>
+
+<body onload="check()" style="display: none;" id="body">
+	
+	<div id="loader"></div>
+
+	<div style="display:none;" id="myDiv" class="animate-bottom">
+		<div class="topnav" id="myTopnav">
+		  <a href="">HOME</a>
+		  <a href="">APPLIANCES</a>
+		  <a href="">MESSEGES</a>
+		  <a href="">PROFILE</a>
+		  <a href="#" onclick="signout()">SIGN OUT</a>
+		  <a href="javascript:void(0);" class="icon" onclick="navBar()"><i class="fa fa-bars"></i></a>
+		</div>
+
+		<h3 id='name'>WELCOME</h3><br>
+
+		<p id="motion" style="color: red;font-weight: bold;"></p>
+
+		<div>
+			<div class="devices">
+				<button class="on" onclick="ref.child('light').set('1');">TURN ON LIGHT</button>
+				<button class="off" onclick="ref.child('light').set('0');">TURN OFF LIGHT</button>
+				<p class="status_label" id="l">LIGHT STATUS :</p>
+			</div>
+
+			<div class="devices">
+				<button class="on" onclick="ref.child('fan').set('1');">TURN ON FAN</button>
+				<button class="off" onclick="ref.child('fan').set('0');">TURN OFF FAN</button>
+				<p class="status_label" id="f">FAN STATUS :</p>
+			</div>
+
+			<div class="devices">
+				<button class="on" onclick="ref.child('ac').set('1');">AC ON</button>
+				<button class="off" onclick="ref.child('ac').set('0');">AC OFF</button>
+				<p class="status_label" id="a">AC STATUS :</p>
+			</div>	
+
+			<div class="devices">
+				<button class="on" onclick="ref.child('door').set('1');">OPEN DOOR</button>
+				<button class="off" onclick="ref.child('door').set('0');">CLOSE DOOR</button>
+				<p class="status_label" id="d">DOOR STATUS :</p>
+			</div>	
+
+			<p class="devices" id="temperature"></p>
+			<p class="devices" id="humidity"></p>
+		</div>
+
+			<iframe
+		    	allow="microphone;"
+		    	width="350"
+		    	height="430"
+		    	src="https://console.dialogflow.com/api-client/demo/embedded/fcad1afe-8991-47ee-aec5-f841fc9a5855"
+				id="chat">
+			</iframe>
+
+			<i class="far fa-comments fa-3x init"></i>
+
+	</div>
+	
+</body>
+</html>
